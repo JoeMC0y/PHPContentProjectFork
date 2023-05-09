@@ -12,7 +12,8 @@
     <header>
         <ul>
             <?php
-            $menu = array("Home"=>"/home.php", "About"=>"/about.php", "Contact"=>"/contact.php");
+            // make this an if statement when session is implemented - show settings instead of login/signup
+            $menu = array("Home"=>"/home.php", "About"=>"/about.php", "Contact"=>"/contact.php", "Login"=>"/account/login.php", "Sign Up"=>"/account/signup.php");
             foreach($menu as $title => $link) {
                 echo ('<li><a href=' . $link . '>' . $title . '</a></li>');
             };
