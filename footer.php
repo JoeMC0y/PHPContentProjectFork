@@ -1,5 +1,5 @@
 <footer>
-    Copyright 2023
+    Goofy Goobers Copyright 2023
 </footer>
 </body>
 </html>
