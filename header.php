@@ -3,11 +3,10 @@
 </title>
 
 <!DOCTYPE html>
-<html lang="en">
 <meta name="description" content="<?php echo $pgDesc?>" />
 <meta name="keywords" content="<?php echo $keyWords?>" />
 <link href="default.css" rel="stylesheet" />
-
+<html lang="en">
 <body>
     <header>
             <?php
@@ -48,4 +47,5 @@
             };
             ?>
     </header>
-
+</body>
+</html>
