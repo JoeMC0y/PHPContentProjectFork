@@ -2,7 +2,8 @@
     <?php 
         session_start(); 
         error_reporting(); 
-        $stylesheet = $_SERVER['DOCUMENT_ROOT'] . "\default.css"; 
+        $stylesheet = $_SERVER['DOCUMENT_ROOT'] . "\default.css";
+
     ?>
 </title>
 
@@ -16,43 +17,83 @@
 </head>
 
 <body>
-    <header>
-            <?php
-            // make this an if statement when session is implemented - show settings instead of login/signup
+
+    <?php
+    // make this an if statement when session is implemented - show settings instead of login/signup
             //$menu = array("Home"=>"/home.php", "About"=>"/about.php", "Contact"=>"/contact.php");
-            $menu = array("About", "Contact", "Account");
-            $aboutMenu = array("History"=>"/about/history.php", "Mission"=>"/about/mission.php");
-            $accMenuLoggedOut = array("Login"=>"/account/login.php", "Sign Up"=>"/account/signup.php");
-            $accMenuLoggedIn = array("Settings"=>"/account/settings.php"); // add log out? if admin use add page
-            $contactMenu = array("Email"=>"/about/email.php", "Location"=>"/about/location.php");
-            foreach($menu as $title) {
-                echo ('<div class="dropdown"><button class="dropbtn">' . $title . '</button>');
-                switch($title) {
-                    case 'About':
-                        echo ('<div class="dropdown-content">');
-                        foreach($aboutMenu as $title => $link) {
-                            echo ('<a href=' . $link . '>' . $title . '</a>');
-                        };
-                        echo ('</div>');
-                        break;
-                    case 'Contact':
-                        echo ('<div class="dropdown-content">');
-                        foreach($contactMenu as $title => $link) {
-                            echo ('<a href=' . $link . '>' . $title . '</a>');
-                        };
-                        echo ('</div>');
-                        break;
-                    case 'Account':
-                        // if not logged in
-                        echo ('<div class="dropdown-content">');
-                        foreach($accMenuLoggedOut as $title => $link) {
-                            echo ('<a href=' . $link . '>' . $title . '</a>');
-                        };
-                        echo ('</div>');
-                        break;
-                };
-                echo ('</div>');
+    if (!isset($_COOKIE["user"])) {
+
+        $menu = array("About", "Contact", "Account");
+        $aboutMenu = array("History" => "/about/history.php", "Mission" => "/about/mission.php");
+        $accMenuLoggedOut = array("Login" => "/account/login.php", "Sign Up" => "/account/signup.php");
+        $contactMenu = array("Email" => "/about/email.php", "Location" => "/about/location.php");
+        foreach ($menu as $title) {
+            echo ('<div class="dropdown"><button class="dropbtn">' . $title . '</button>');
+            switch ($title) {
+                case 'About':
+                    echo ('<div class="dropdown-content">');
+                    foreach ($aboutMenu as $title => $link) {
+                        echo ('<a href=' . $link . '>' . $title . '</a>');
+                    };
+                    echo ('</div>');
+                    break;
+                case 'Contact':
+                    echo ('<div class="dropdown-content">');
+                    foreach ($contactMenu as $title => $link) {
+                        echo ('<a href=' . $link . '>' . $title . '</a>');
+                    };
+                    echo ('</div>');
+                    break;
+                case 'Account':
+                    // if not logged in
+                    echo ('<div class="dropdown-content">');
+                    foreach ($accMenuLoggedOut as $title => $link) {
+                        echo ('<a href=' . $link . '>' . $title . '</a>');
+                    };
+                    echo ('</div>');
+                    break;
             };
-            ?>
-    </header>
+            echo ('</div>');
+        };
+    } else {
+        
+        $menu = array("About", "Contact", "Account");
+        $aboutMenu = array("History" => "/about/history.php", "Mission" => "/about/mission.php");
+        $accMenuLoggedIn = array("Settings" => "/account/settings.php", "Logout" => "/account/logout.php"); // add log out? if admin use add page
+        $contactMenu = array("Email" => "/about/email.php", "Location" => "/about/location.php");
+        foreach ($menu as $title) {
+            echo ('<div class="dropdown"><button class="dropbtn">' . $title . '</button>');
+            switch ($title) {
+                case 'About':
+                    echo ('<div class="dropdown-content">');
+                    foreach ($aboutMenu as $title => $link) {
+                        echo ('<a href=' . $link . '>' . $title . '</a>');
+                    }
+                    ;
+                    echo ('</div>');
+                    break;
+                case 'Contact':
+                    echo ('<div class="dropdown-content">');
+                    foreach ($contactMenu as $title => $link) {
+                        echo ('<a href=' . $link . '>' . $title . '</a>');
+                    }
+                    ;
+                    echo ('</div>');
+                    break;
+                case 'Account':
+                    // if not logged in
+                    echo ('<div class="dropdown-content">');
+                    foreach ($accMenuLoggedIn as $title => $link) {
+                        echo ('<a href=' . $link . '>' . $title . '</a>');
+                    };
+                    echo ('</div>');
+                    break;
+            };
+            echo ('</div>');
+            
+        };
+        echo ("Hello " . $_COOKIE["user"]);
+    }
+    ?>
+
 
