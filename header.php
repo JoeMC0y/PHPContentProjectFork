@@ -1,12 +1,19 @@
 <title>
-    <?php session_start(); error_reporting(); echo $page_title; ?>
+    <?php 
+        session_start(); 
+        error_reporting(); 
+        $stylesheet = $_SERVER['DOCUMENT_ROOT'] . "\default.css"; 
+    ?>
 </title>
 
 <!DOCTYPE html>
 <html lang="en">
-<meta name="description" content="<?php echo $pgDesc?>" />
-<meta name="keywords" content="<?php echo $keyWords?>" />
-<link href="default.css" rel="stylesheet" />
+<head>
+    <meta name="description" content="<?php echo $pgDesc?>" />
+    <meta name="keywords" content="<?php echo $keyWords?>" />
+    <!--<link href="default.css" rel="stylesheet" />-->
+
+</head>
 
 <body>
     <header>
@@ -48,4 +55,6 @@
             };
             ?>
     </header>
+    <?php
+    echo $stylesheet?>
 

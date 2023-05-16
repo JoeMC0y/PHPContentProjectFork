@@ -1,6 +1,7 @@
 <?php
 include_once('header.php');
 ?>
+<style><?php include('default.css') ?></style>
 <body>
     <h1>Contact us!</h1>
 </body>

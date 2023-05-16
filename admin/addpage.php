@@ -1,7 +1,8 @@
 <?php
-include_once('header.php');
+include_once('../header.php');
 $htmlContent = null;
 ?>
+<style><?php include('../default.css') ?></style>
 <br />
 <table>
     <tr>
@@ -31,15 +32,16 @@ $htmlContent = null;
     </tr>
     <tr>
         <td colspan="4">
-            <button name="add">Add Element</button>
+            <button name="add" onclick="addElement()">Add Element</button>
         </td>
     </tr>
 </table>
 <p id="error"></p>
 
-<?php
-include_once('preview.php');
-?>
+<div id="preview">
+
+</div>
+
 
 <script>
     function setelem(tag) {
@@ -47,24 +49,17 @@ include_once('preview.php');
     }
 
     function addElement() {
-        let selection = document.getElementById("sel");
-        let content = document.getElementById("content");
+        let selection = document.getElementById("sel").value;
+        let content = document.getElementById("content").value;
         if (selection == null || selection == '' || content == null || content == '') {
             document.getElementById('error').innerHTML = "Could not create new element, fill in all fields.";
         }
 
         let element = "<" + selection + ">" + content + "</" + selection + ">";
-        let postObj = { htmlcontent: element }
-        let jsonPost = JSON.stringify(postObj);
-        console.log(jsonPost);
-
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "admin/preview.php", true);
-        xmlhttp.setRequestHeader('Content-Type', 'application/json');
-        xmlhttp.send(jsonPost);
+        document.getElementById('preview').innerHTML += element;
     }
 
 </script>
 <?php
-include_once('footer.php');
+include_once('../footer.php');
 ?>
