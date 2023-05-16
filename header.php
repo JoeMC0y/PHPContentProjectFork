@@ -55,6 +55,4 @@
             };
             ?>
     </header>
-    <?php
-    echo $stylesheet?>
 

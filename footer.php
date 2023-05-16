@@ -1,3 +1,5 @@
+<html>
+<body>
 <footer>
     Goofy Goobers Copyright 2023
 </footer>
