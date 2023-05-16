@@ -95,5 +95,3 @@
         echo ("Hello " . $_COOKIE["user"]);
     }
     ?>
-
-
