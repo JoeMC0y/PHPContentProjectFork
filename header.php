@@ -12,6 +12,12 @@
 <head>
     <meta name="description" content="<?php echo $pgDesc?>" />
     <meta name="keywords" content="<?php echo $keyWords?>" />
+    <?php
+    if ($_SESSION['css'] == '') {
+        $_SESSION['css'] = __DIR__ . '\default.css';
+    }
+    ?>
+    <style><?php include $_SESSION['css']?></style>
 
     <?php
         if(!isset($_COOKIE["style"]) || empty($_COOKIE["style"] || $_COOKIE["style"] == "")){
