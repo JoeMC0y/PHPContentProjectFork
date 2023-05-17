@@ -2,7 +2,7 @@
 include_once('../header.php');
 $htmlContent = null;
 ?>
-<style><?php include('../default.css') ?></style>
+
 <br />
 <table>
     <tr>

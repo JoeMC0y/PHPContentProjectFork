@@ -1,6 +1,6 @@
 <?php
 
-include "dbConnect.php";
+include '../data/dbConnect.php';
 
 $name = $pass = $admin = "";
 
