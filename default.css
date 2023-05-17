@@ -44,6 +44,9 @@ body {
 .header {
     width: 100%;
 }
+
+.error {color: #FF0000;}
+}
 #footer {
     position: absolute;
     bottom: 0;
