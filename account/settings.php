@@ -8,9 +8,9 @@ include_once('settingScript.php');
 
 <body>
 <form action="settingScript.php" method="post">
-    <input type="submit" name="dark" value="dark" />
-    <input type="submit" name="flashbang" value="flashbang" />
-    <input type="submit" name="default" value="default" />
+    <input type="submit" name="stly" value="dark" />
+    <input type="submit" name="stly" value="flashbang" />
+    <input type="submit" name="stly" value="default" />
 </form>
 </body>
 <br />
