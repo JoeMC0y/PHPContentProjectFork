@@ -1,6 +1,7 @@
 body {
     background-color: #3c3c3c;
-    color: white;
+    color: limegreen;
+    font-family:'Comic Sans MS';
 }
 
 .error {color: #FF0000;}
