@@ -36,6 +36,14 @@ $htmlContent = null;
         </td>
     </tr>
 </table>
+<label for="headers">Choose header:</label>
+<select name="header" id="header">
+  <option value="h1">h1</option>
+  <option value="h2">h2</option>
+  <option value="h3">h3</option>
+  <option value="h4">h4</option>
+</select>
+<button type="submit">submit</button>
 <p id="error"></p>
 
 <div id="preview">
