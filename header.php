@@ -2,7 +2,7 @@
     <?php 
         session_start(); 
         error_reporting(); 
-        // $stylesheet = $_SERVER['DOCUMENT_ROOT'] . "\default.css";
+        
 
     ?>
 </title>
@@ -12,8 +12,16 @@
 <head>
     <meta name="description" content="<?php echo $pgDesc?>" />
     <meta name="keywords" content="<?php echo $keyWords?>" />
-    <link href= "<?php echo $_COOKIE["style"] ?> "  rel = "stylesheet"/>
-    
+
+    <?php
+        if(!isset($_COOKIE["style"]) || empty($_COOKIE["style"] || $_COOKIE["style"] == "")){
+            echo "<link href= '../default.css' rel = 'stylesheet'/>";
+
+        }else{
+            echo '<link href= '. $_COOKIE["style"] . ' rel = "stylesheet"/>';
+
+        }
+    ?>
 
 </head>
 
@@ -57,7 +65,6 @@
             echo ('</div>');
         };
     } else {
-        
         $menu = array("About", "Contact", $_COOKIE["user"]);
 
 
