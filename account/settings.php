@@ -1,25 +1,17 @@
 <?php
-include_once('header.php');
+include_once('../header.php');
+
+include_once('settingScript.php');
 ?>
 
 <link id="style-link" rel="stylesheet" type="text/css" href="../default.css">
 
 <body>
-    <button onclick="changeStyle('darkmode.css')">Dark Mode</button>
-    <button onclick="changeStyle('flashbang.css')">FlashBang</button>
-
-
-    <script>
-    function changeStyle(sty) {
-        var styLink = document.getElementById('style-link');
-        styLink.href = '../' + sty;
-        localStorage.setItem('selected', sty);
-    }
-    var selected = localStorage.getItem('selected');
-    if (selected) {
-        changeStyle(selected)
-    }
-    </script>
+<form action="settingScript.php" method="post">
+    <input type="submit" name="dark" value="dark" />
+    <input type="submit" name="flashbang" value="flashbang" />
+    <input type="submit" name="default" value="default" />
+</form>
 </body>
 <br />
 <?php

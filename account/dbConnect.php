@@ -21,20 +21,38 @@ function getUser($dbConn,$username,$password){
 }
 
 function addUsers($dbConn,$username,$password){
-    $query1 = "select * from users where username =".$username.";";
+    $check = checkUser(ConnGet(), $username);
+    
+    if($check->num_rows > 0){
+        return "Username already used."; 
+    }else{
+        $query ="insert into users (username, password, isAdmin)values('".$username."','".$password."', false)";
+        return @mysqli_query($dbConn,$query);
+    }
 
 
-    $query ="insert into users (username, password, isAdmin)values(".$username.",".$password.", false);";
-    return @mysqli_query($dbConn,$query);
+
 }
 
 function getAdmin($dbConn,$username,$password){
-    $query = "select * from users where username =".$username." and password = ".$password."and isAdmin = true;";
+    $query = "select * from `users` where `username` =".$username." and `password` = ".$password."and isAdmin = true";
     return @mysqli_query($dbConn,$query);
 }
 
 function addAdmin($dbConn,$username,$password){
-    $query ="insert into users (username, password, isAdmin)values(".$username.",".$password.", true);";
-    return @mysqli_query($dbConn,$query);
+    $check = checkUser(ConnGet(), $username);
+    
+    if($check->num_rows > 0){
+        return "Username already used.";
+    }else{
+
+        $query ="insert into users (username, password, isAdmin)values('".$username."','".$password."', true)";
+        return @mysqli_query($dbConn,$query);
+    }
+}
+
+function checkUser($dbConn, $username){
+    $query = "select * from `users` where `username` ='".$username."'";
+    return @mysqli_query($dbConn, $query);
 }
 ?>

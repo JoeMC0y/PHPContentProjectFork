@@ -2,7 +2,7 @@
     <?php 
         session_start(); 
         error_reporting(); 
-        $stylesheet = $_SERVER['DOCUMENT_ROOT'] . "\default.css";
+        // $stylesheet = $_SERVER['DOCUMENT_ROOT'] . "\default.css";
 
     ?>
 </title>
@@ -12,7 +12,7 @@
 <head>
     <meta name="description" content="<?php echo $pgDesc?>" />
     <meta name="keywords" content="<?php echo $keyWords?>" />
-    <!--<link href="default.css" rel="stylesheet" />-->
+    <link href="default.css" rel="stylesheet"/>
 
 </head>
 
@@ -26,7 +26,7 @@
         $menu = array("About", "Contact", "Account");
         $aboutMenu = array("History" => "/about/history.php", "Mission" => "/about/mission.php");
         $accMenuLoggedOut = array("Login" => "/account/login.php", "Sign Up" => "/account/signup.php");
-        $contactMenu = array("Email" => "/about/email.php", "Location" => "/about/location.php");
+        $contactMenu = array("Email" => "/contact/email.php", "Location" => "/contact/location.php");
         foreach ($menu as $title) {
             echo ('<div class="dropdown"><button class="dropbtn">' . $title . '</button>');
             switch ($title) {
@@ -57,10 +57,20 @@
         };
     } else {
         
-        $menu = array("About", "Contact", "Account");
+        $menu = array("About", "Contact", $_COOKIE["user"]);
+
+
         $aboutMenu = array("History" => "/about/history.php", "Mission" => "/about/mission.php");
         $accMenuLoggedIn = array("Settings" => "/account/settings.php", "Logout" => "/account/logout.php"); // add log out? if admin use add page
-        $contactMenu = array("Email" => "/about/email.php", "Location" => "/about/location.php");
+
+        if($_COOKIE["admin"] == 1 || $_COOKIE["admin"] == "1"){
+            $accMenuLoggedIn = array("Admin" => "/admin/addpage.php", "Settings" => "/account/settings.php", "Logout" => "/account/logout.php");
+        }else{
+            $accMenuLoggedIn = array("Settings" => "/account/settings.php", "Logout" => "/account/logout.php");
+        }
+
+        $contactMenu = array("Email" => "/contact/email.php", "Location" => "/contact/location.php");
+
         foreach ($menu as $title) {
             echo ('<div class="dropdown"><button class="dropbtn">' . $title . '</button>');
             switch ($title) {
@@ -80,7 +90,7 @@
                     ;
                     echo ('</div>');
                     break;
-                case 'Account':
+                case $_COOKIE["user"]:
                     // if not logged in
                     echo ('<div class="dropdown-content">');
                     foreach ($accMenuLoggedIn as $title => $link) {

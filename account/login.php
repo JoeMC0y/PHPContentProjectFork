@@ -1,5 +1,5 @@
 <?php
-include_once('header.php');
+include_once('../header.php');
 
 ?>
 
@@ -9,8 +9,7 @@ include_once('header.php');
     <input type="submit" />
 </form>
 
-<style><?php include('../default.css') ?></style>
 <br />
 <?php
-include_once('footer.php');
+include_once('../footer.php');
 ?>

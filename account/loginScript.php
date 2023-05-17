@@ -16,6 +16,7 @@ $users = getUser($connec, $_POST["name"], $_POST["pass"]);
             setcookie("user", $user, time() + (86400 * 30), "/");
             setcookie("password", $pas, time() + (86400 * 30), "/");
             setcookie("style", "\default.css", time() + (86400 * 30), "/");
+            setcookie("admin", $row["isAdmin"], time() + (86400 * 30), "/");
             header("Location: http://localhost:5435/");
             exit();
 

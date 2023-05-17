@@ -13,7 +13,7 @@ body {
         font-size: 16px;
         border: none;
         outline: none;
-        color: white;
+        color: #00415f;
         padding: 14px 16px;
         background-color: inherit;
         font-family: inherit; /* Important for vertical align on mobile phones */
@@ -47,7 +47,7 @@ body {
 }
 
 .error {color: #FF0000;}
-}
+
 #footer {
     position: absolute;
     bottom: 0;
