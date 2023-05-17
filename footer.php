@@ -1,4 +1,3 @@
-<style><?php include('default.css') ?></style>
 <html>
 
 <body>

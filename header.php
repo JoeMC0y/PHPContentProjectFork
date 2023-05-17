@@ -12,8 +12,10 @@
 <head>
     <meta name="description" content="<?php echo $pgDesc?>" />
     <meta name="keywords" content="<?php echo $keyWords?>" />
-
-    <link href="$_COOKIE['style']" rel="stylesheet"/>
+    <?php
+        echo ('<link href= ' . $_COOKIE["style"] . '  rel = "stylesheet"/>');
+    ?>
+    
 
 </head>
 
